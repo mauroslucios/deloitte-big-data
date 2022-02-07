@@ -35,6 +35,7 @@ public class Funcionario {
 	@NotBlank
 	private String cpf;
 	
+	@NotBlank
 	private String email;
 	
 	
