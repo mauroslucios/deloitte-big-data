@@ -4,10 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
-
-import com.big.data.desafio.enums.TipoFuncionario;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,7 +25,9 @@ public class Funcionario {
 	private Long id;
 	
 	@NotBlank
-	private TipoFuncionario tipo;
+	@ManyToOne
+	@JoinColumn(name="departamento_id")
+	private Departamento departamento;
 	
 	@NotBlank
 	private String nome;
@@ -33,6 +35,7 @@ public class Funcionario {
 	@NotBlank
 	private String cpf;
 	
-	@NotBlank
-	private Equipe departamento;
+	private String email;
+	
+	
 }

@@ -12,18 +12,18 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name="tb_equipe")
+@Table(name="tb_departamento")
 @AllArgsConstructor
 @Getter
 @Setter
-public class Equipe {
+public class Departamento {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	@NotBlank
-	private Equipe tipo;
+	private String nome;
 	
 	
 }
