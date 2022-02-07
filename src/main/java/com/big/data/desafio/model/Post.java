@@ -30,8 +30,9 @@ public class Post {
 	@NotBlank
 	private String titulo;
 	
+	@NotBlank
 	@ManyToOne
-	@JoinColumn(name="post_id")
-	private Post post;
+	@JoinColumn(name="funcionario_id")
+	private Funcionario funcionario;
 	
 }
