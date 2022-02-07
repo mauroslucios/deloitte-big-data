@@ -34,7 +34,9 @@ public class DepartamentoService {
 	}
 	
 	
-	
+	public Departamento updateDepartamento(Departamento departamento) {
+		return departamentoRepository.save(departamento);
+	}
 	
 	
 	

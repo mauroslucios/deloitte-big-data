@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -55,6 +56,11 @@ public class DepartamentoController {
 		departamentoService.deletarDepartamentoById(id);
 	}
 	
+	@PutMapping("/departamentos")
+	@ApiOperation(value="Atualiza um departamento pelo id")
+	public Departamento updateDepartamento(@RequestBody Departamento departamento) {
+		return departamentoService.updateDepartamento(departamento);
+	}
 	
 	
 	
