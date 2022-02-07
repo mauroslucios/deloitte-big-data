@@ -4,10 +4,12 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.big.data.desafio.dto.DepartamentoDTO;
+import com.big.data.desafio.model.Departamento;
 import com.big.data.desafio.service.DepartamentoService;
 
 import io.swagger.annotations.Api;
@@ -28,5 +30,14 @@ public class DepartamentoController {
 	public List<DepartamentoDTO> listarDepartamentos(){
 		return departamentoService.findAll();
 	}
+	
+	@GetMapping("/departamentos/{id}")
+	@ApiOperation(value="Retorna um único departamento pelo id")
+	public Departamento listarUnicoId(@PathVariable(value="id") Long id) {
+		return departamentoService.findOne(id);
+	}
+	
+	
+	
 	
 }

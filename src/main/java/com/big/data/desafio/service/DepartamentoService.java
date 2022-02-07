@@ -21,4 +21,8 @@ public class DepartamentoService {
 		return DepartamentoDTO.converter(departamentos);
 	}
 
+	public Departamento findOne(Long id) {
+		return departamentoRepository.findById(id).get();
+	}
+
 }
