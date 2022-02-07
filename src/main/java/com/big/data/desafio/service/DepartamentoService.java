@@ -25,4 +25,14 @@ public class DepartamentoService {
 		return departamentoRepository.findById(id).get();
 	}
 
+	public Departamento inserirDepartamento(Departamento departamento) {
+		return departamentoRepository.save(departamento);
+	}
+	
+	
+	
+	
+	
+	
+
 }
