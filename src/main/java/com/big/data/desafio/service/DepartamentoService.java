@@ -28,6 +28,10 @@ public class DepartamentoService {
 	public Departamento inserirDepartamento(Departamento departamento) {
 		return departamentoRepository.save(departamento);
 	}
+
+	public void deletarDepartamentoById(Long id) {
+		departamentoRepository.deleteById(id);
+	}
 	
 	
 	
