@@ -25,4 +25,15 @@ public class FuncionarioService {
 		return funcionarioRepository.findById(id).get();
 	}
 
+	public Funcionario insertFuncionario(Funcionario funcionario) {
+		return funcionarioRepository.save(funcionario);
+	}
+
+	
+	
+	
+	
+	
+	
+	
 }

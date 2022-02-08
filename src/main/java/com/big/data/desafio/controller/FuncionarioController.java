@@ -2,10 +2,14 @@ package com.big.data.desafio.controller;
 
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.big.data.desafio.dto.FuncionarioDTO;
@@ -37,7 +41,12 @@ public class FuncionarioController {
 		return funcionarioService.findOne(id);
 	}
 	
-	
+	@ResponseStatus(HttpStatus.CREATED)
+	@PostMapping("/funcionarios")
+	@ApiOperation(value="Salva um funcionário no banco")
+	public Funcionario insertFuncionario(@RequestBody Funcionario funcionario) {
+		return funcionarioService.insertFuncionario(funcionario);
+	}
 	
 	
 	
