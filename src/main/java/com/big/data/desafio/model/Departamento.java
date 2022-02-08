@@ -9,14 +9,18 @@ import javax.validation.constraints.NotBlank;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Table(name="tb_departamento")
-@AllArgsConstructor
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Departamento {
+	
+	
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

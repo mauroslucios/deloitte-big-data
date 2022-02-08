@@ -3,6 +3,7 @@ package com.big.data.desafio.controller;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -50,16 +51,17 @@ public class DepartamentoController {
 		return departamentoService.inserirDepartamento(departamento);
 	}
 	
-	@DeleteMapping("departamentos/{id}")
+	@DeleteMapping("/departamentos/{id}")
 	@ApiOperation(value="Deleta um departamento pelo id")
 	public void deletarDepartamento(@PathVariable Long id) {
 		departamentoService.deletarDepartamentoById(id);
 	}
 	
-	@PutMapping("/departamentos")
+	@PutMapping(value="/departamentos")
 	@ApiOperation(value="Atualiza um departamento pelo id")
-	public Departamento updateDepartamento(@RequestBody Departamento departamento) {
-		return departamentoService.updateDepartamento(departamento);
+	public ResponseEntity<Departamento> updateDepartamento(@RequestBody Departamento departamento) {
+		Departamento departamentoModificado = departamentoService.updateDepartamento(departamento);
+		return new ResponseEntity<Departamento>(departamentoModificado, HttpStatus.OK);
 	}
 	
 	

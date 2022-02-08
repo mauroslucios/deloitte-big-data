@@ -32,13 +32,11 @@ public class DepartamentoService {
 	public void deletarDepartamentoById(Long id) {
 		departamentoRepository.deleteById(id);
 	}
-	
-	
+
 	public Departamento updateDepartamento(Departamento departamento) {
 		return departamentoRepository.save(departamento);
 	}
-	
-	
+		
 	
 
 }
