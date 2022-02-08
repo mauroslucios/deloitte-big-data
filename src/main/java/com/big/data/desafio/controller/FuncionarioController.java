@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -46,6 +47,12 @@ public class FuncionarioController {
 	@ApiOperation(value="Salva um funcionário no banco")
 	public Funcionario insertFuncionario(@RequestBody Funcionario funcionario) {
 		return funcionarioService.insertFuncionario(funcionario);
+	}
+	
+	@DeleteMapping("/funcionarios/{id}")
+	@ApiOperation(value="Deleta um produto pelo id")
+	public void deleteProduto(@PathVariable Long id) {
+		funcionarioService.deleteProduto(id);
 	}
 	
 	

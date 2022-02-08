@@ -29,6 +29,10 @@ public class FuncionarioService {
 		return funcionarioRepository.save(funcionario);
 	}
 
+	public void deleteProduto(Long id) {
+		funcionarioRepository.deleteById(id);
+	}
+
 	
 	
 	
