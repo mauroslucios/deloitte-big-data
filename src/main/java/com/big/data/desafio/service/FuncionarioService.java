@@ -21,4 +21,8 @@ public class FuncionarioService {
 		return FuncionarioDTO.converter(funcionarios);
 	}
 
+	public Funcionario findOne(Long id) {
+		return funcionarioRepository.findById(id).get();
+	}
+
 }

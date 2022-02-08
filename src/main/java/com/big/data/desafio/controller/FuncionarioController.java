@@ -4,10 +4,12 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.big.data.desafio.dto.FuncionarioDTO;
+import com.big.data.desafio.model.Funcionario;
 import com.big.data.desafio.service.FuncionarioService;
 
 import io.swagger.annotations.Api;
@@ -28,6 +30,17 @@ public class FuncionarioController {
 	public List<FuncionarioDTO> listarFuncionarios(){
 		return funcionarioService.findAll();
 	}
+	
+	@GetMapping("/funcionarios/{id}")
+	@ApiOperation(value="Busca um funcionario pleo id")
+	public Funcionario findOne(@PathVariable (value="id") Long id) {
+		return funcionarioService.findOne(id);
+	}
+	
+	
+	
+	
+	
 	
 	
 	
