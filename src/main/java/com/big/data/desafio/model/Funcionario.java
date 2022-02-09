@@ -44,6 +44,9 @@ public class Funcionario {
 	@NotBlank
 	private String email;
 	
+	@NotBlank
+	private String senha;
+	
 	@Column(nullable = false) 
 	@Enumerated(EnumType.STRING) 
 	TipoFuncionario tipo;

@@ -8,7 +8,7 @@ import lombok.Getter;
 public enum TipoFuncionario {
 	
 	ADMINISTRADOR("Administrador"),
-	COMUM("Comum");
+	PADRAO("Padrao");
 	TipoFuncionario(String string) {
 		
 	}
