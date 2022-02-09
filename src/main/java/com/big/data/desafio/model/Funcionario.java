@@ -1,6 +1,9 @@
 package com.big.data.desafio.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -8,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+
+import com.big.data.desafio.enums.TipoFuncionario;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,7 +31,6 @@ public class Funcionario {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotBlank
 	@ManyToOne
 	@JoinColumn(name="departamento_id")
 	private Departamento departamento;
@@ -40,5 +44,7 @@ public class Funcionario {
 	@NotBlank
 	private String email;
 	
-	
+	@Column(nullable = false) 
+	@Enumerated(EnumType.STRING) 
+	TipoFuncionario tipo;
 }

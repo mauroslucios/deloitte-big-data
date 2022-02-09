@@ -32,7 +32,6 @@ public class Post {
 	@NotBlank
 	private String titulo;
 	
-	@NotBlank
 	@ManyToOne
 	@JoinColumn(name="funcionario_id")
 	private Funcionario funcionario;
