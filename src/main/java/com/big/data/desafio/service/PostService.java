@@ -25,4 +25,13 @@ public class PostService {
 		return postRepository.findById(id).get();
 	}
 
+	public Post insertPost(Post post) {
+		return postRepository.save(post);
+	}
+
+	
+	
+	
+	
+	
 }
