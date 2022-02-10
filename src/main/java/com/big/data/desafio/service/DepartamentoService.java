@@ -33,8 +33,10 @@ public class DepartamentoService {
 		departamentoRepository.deleteById(id);
 	}
 
-	public Departamento updateDepartamento(Departamento departamento) {
-		return departamentoRepository.save(departamento);
+	public Departamento updateDepartamento(Long id, Departamento departamento) {
+		Departamento departamentoAtualizado = findOne(id);
+		departamentoAtualizado.setNome(departamento.getNome());
+		return departamentoRepository.save(departamentoAtualizado);
 	}
 		
 	
