@@ -34,6 +34,7 @@ public class DepartamentoController {
 
 	private DepartamentoService departamentoService;
 	
+	
 	@ApiResponses( value= {
 			@ApiResponse(code = 200, message = "Lista de departamentos encontrados"),
 			@ApiResponse(code = 403, message = "Você não tem permissão para acessar este recurso"),

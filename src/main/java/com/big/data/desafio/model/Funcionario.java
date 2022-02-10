@@ -11,8 +11,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
@@ -40,12 +38,13 @@ public class Funcionario  {
 	private Departamento departamento;
 	
 	@NotBlank
-	@Size(max = 30,min = 3)
+	@Size(min = 3, message = "Nome deve conter no mínimo 3 caracteres")
+	@Size(max = 30, message = "Nome deve conter no máximo 30 caracteres")
 	private String nome;
 	
 	@NotBlank
-	@Min(value = 18, message = "Cpf deve conter no mínimo 11 caracteres")
-    @Max(value = 150, message = "Cpf deve conter no máximo 11 caracteres")
+	@Size(max = 11, message = "Cpf deve conter no mínimo 11 caracteres")
+	@Size(min = 11, message = "Cpf deve conter no máximo 11 caracteres")
 	@Column(unique=true)
 	private String cpf;
 	

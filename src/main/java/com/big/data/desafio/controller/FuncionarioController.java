@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,6 +34,7 @@ import lombok.AllArgsConstructor;
 public class FuncionarioController {
 
 	private FuncionarioService funcionarioService;
+	private final PasswordEncoder encoder;
 	
 	@GetMapping(value="/listar/funcionarios", produces = "application/json")
 	@ApiOperation(value="Retorna uma lista de funcionários")
@@ -66,6 +68,7 @@ public class FuncionarioController {
 	@PostMapping(value="/cadastrar/funcionarios", produces="application/json")
 	@ApiOperation(value="Cadastra um funcionário no banco")
 	public Funcionario insertFuncionario(@RequestBody Funcionario funcionario) {
+		funcionario.setSenha(encoder.encode(funcionario.getSenha()));
 		return funcionarioService.insertFuncionario(funcionario);
 	}
 	
