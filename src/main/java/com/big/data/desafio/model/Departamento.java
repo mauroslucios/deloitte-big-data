@@ -1,5 +1,6 @@
 package com.big.data.desafio.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,6 +28,7 @@ public class Departamento {
 	private Long id;
 	
 	@NotBlank
+	@Column(unique=true)
 	private String nome;
 	
 	

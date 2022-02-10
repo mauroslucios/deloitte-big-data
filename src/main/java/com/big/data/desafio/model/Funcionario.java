@@ -46,13 +46,16 @@ public class Funcionario  {
 	@NotBlank
 	@Min(value = 18, message = "Cpf deve conter no mínimo 11 caracteres")
     @Max(value = 150, message = "Cpf deve conter no máximo 11 caracteres")
+	@Column(unique=true)
 	private String cpf;
 	
 	@NotBlank
 	@Email
+	@Column(unique=true)
 	private String email;
 	
 	@NotBlank
+	@Column(unique=true)
 	private String senha;
 	
 	@Column(nullable = false) 
