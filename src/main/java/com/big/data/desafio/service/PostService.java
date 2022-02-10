@@ -31,7 +31,13 @@ public class PostService {
 
 	public void deletePostById(Long id) {
 		postRepository.deleteById(id);		
+	}
+
+	public Post updatePost(Long id, Post post) {
+		Post postAtualizado = findById(id);
+		postAtualizado.setDescricao(post.getDescricao());
+		postAtualizado.setFuncionario(post.getFuncionario());
+		postAtualizado.setTitulo(post.getTitulo());
+		return postRepository.save(postAtualizado);
 	}	
-	
-	
 }
