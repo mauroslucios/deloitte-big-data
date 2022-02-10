@@ -63,7 +63,7 @@ public class FuncionarioController {
 			@ApiResponse(code = 500, message = "Aconteceu gerada uma exceção")
 	})
 	@ResponseStatus(HttpStatus.CREATED)
-	@PostMapping("/cadastrar/funcionarios")
+	@PostMapping(value="/cadastrar/funcionarios", produces="application/json")
 	@ApiOperation(value="Cadastra um funcionário no banco")
 	public Funcionario insertFuncionario(@RequestBody Funcionario funcionario) {
 		return funcionarioService.insertFuncionario(funcionario);

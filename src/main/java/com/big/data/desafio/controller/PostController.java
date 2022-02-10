@@ -39,7 +39,7 @@ public class PostController {
 			@ApiResponse(code = 403, message = "Você não tem permissão para acessar este recurso"),
 			@ApiResponse(code = 500, message = "Aconteceu gerada uma exceção")
 	})
-	@GetMapping("/listar/posts")
+	@GetMapping(value="/listar/posts", produces="application/json")
 	@ApiOperation(value="Retorna uma lista de posts")
 	public List<PostDTO> listarPosts(){
 		return postService.findAll();
@@ -50,7 +50,7 @@ public class PostController {
 			@ApiResponse(code = 403, message = "Você não tem permissão para acessar este recurso"),
 			@ApiResponse(code = 500, message = "Aconteceu gerada uma exceção")
 	})
-	@GetMapping("/listar/posts/{id}")
+	@GetMapping(value="/listar/posts/{id}", produces="application/json")
 	@ApiOperation(value="Busca um post pelo id")
 	public Post findOne(@PathVariable(value="id") Long id) {
 		return postService.findById(id);
@@ -62,7 +62,7 @@ public class PostController {
 			@ApiResponse(code = 500, message = "Aconteceu gerada uma exceção")
 	})
 	@ResponseStatus(HttpStatus.CREATED)
-	@PostMapping("/cadastrar/posts")
+	@PostMapping(value="/cadastrar/posts", produces="application/json")
 	@ApiOperation(value="Salva um produto no banco")
 	public Post insertPost(@RequestBody Post post) {
 		return postService.insertPost(post);
@@ -73,7 +73,7 @@ public class PostController {
 			@ApiResponse(code = 403, message = "Você não tem permissão para acessar este recurso"),
 			@ApiResponse(code = 500, message = "Aconteceu gerada uma exceção")
 	})
-	@DeleteMapping("/deletar/posts/{id}")
+	@DeleteMapping(value="/deletar/posts/{id}", produces="application/json")
 	@ApiOperation(value="Deleta um post pelo id")
 	public void deletePost(@PathVariable Long id) {
 		postService.deletePostById(id);

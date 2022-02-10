@@ -39,7 +39,7 @@ public class DepartamentoController {
 			@ApiResponse(code = 403, message = "Você não tem permissão para acessar este recurso"),
 			@ApiResponse(code = 500, message = "Ocorreu uma exceção")
 	})	
-	@GetMapping("/listar/departamentos")
+	@GetMapping(value="/listar/departamentos", produces="application/json")
 	@ApiOperation(value="Retorna uma lista de departamentos")
 	public List<DepartamentoDTO> listarDepartamentos(){
 		return departamentoService.findAll();
@@ -51,7 +51,7 @@ public class DepartamentoController {
 			@ApiResponse(code = 403, message = "Você não tem permissão para acessar este recurso"),
 			@ApiResponse(code = 500, message = "Ocorreu uma exceção")
 	})
-	@GetMapping("/listar/departamentos/{id}")
+	@GetMapping(value="/listar/departamentos/{id}", produces="application/json")
 	@ApiOperation(value="Retorna um único departamento pelo id")
 	public Departamento listarUnicoId(@PathVariable(value="id") Long id) {
 		return departamentoService.findOne(id);
@@ -63,7 +63,7 @@ public class DepartamentoController {
 			@ApiResponse(code = 500, message = "Ocorreu uma exceção")
 	})
 	@ResponseStatus(HttpStatus.CREATED)
-	@PostMapping("/cadastrar/departamentos")
+	@PostMapping(value="/cadastrar/departamentos", produces="application/json")
 	@ApiOperation(value="Salva um departamento no banco")
 	public Departamento inserirDepartamento(@RequestBody Departamento departamento) {
 		return departamentoService.inserirDepartamento(departamento);
@@ -74,7 +74,7 @@ public class DepartamentoController {
 			@ApiResponse(code = 403, message = "Você não tem permissão para acessar este recurso"),
 			@ApiResponse(code = 500, message = "Ocorreu uma exceção")
 	})
-	@DeleteMapping("/deletar/departamentos/{id}")
+	@DeleteMapping(value="/deletar/departamentos/{id}", produces="application/json")
 	@ApiOperation(value="Deleta um departamento pelo id")
 	public void deletarDepartamento(@PathVariable Long id) {
 		departamentoService.deletarDepartamentoById(id);
@@ -85,15 +85,10 @@ public class DepartamentoController {
 			@ApiResponse(code = 403, message = "Você não tem permissão para acessar este recurso"),
 			@ApiResponse(code = 500, message = "Ocorreu uma exceção")
 	})
-	@PutMapping(value="/alterar/departamentos/{id}")
+	@PutMapping(value="/alterar/departamentos/{id}", produces="application/json")
 	@ApiOperation(value="Atualiza um departamento pelo id")
 	public ResponseEntity<DepartamentoDTO> atualizarDepartamento(@PathVariable Long id, @RequestBody Departamento departamento) {
 		Departamento departamentoModificado = departamentoService.updateDepartamento(id,departamento);
 		return ResponseEntity.ok().body(new DepartamentoDTO(departamentoModificado));
-	}
-	
-	
-	
-	
-	
+	}	
 }
