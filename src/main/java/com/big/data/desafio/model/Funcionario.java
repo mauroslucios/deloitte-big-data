@@ -10,7 +10,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 import com.big.data.desafio.enums.TipoFuncionario;
 
@@ -25,7 +29,7 @@ import lombok.Setter;
 @Setter
 @Entity
 @Table(name="tb_funcionario")
-public class Funcionario {
+public class Funcionario  {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,12 +40,16 @@ public class Funcionario {
 	private Departamento departamento;
 	
 	@NotBlank
+	@Size(max = 30,min = 3)
 	private String nome;
 	
 	@NotBlank
+	@Min(value = 18, message = "Cpf deve conter no mínimo 11 caracteres")
+    @Max(value = 150, message = "Cpf deve conter no máximo 11 caracteres")
 	private String cpf;
 	
 	@NotBlank
+	@Email
 	private String email;
 	
 	@NotBlank

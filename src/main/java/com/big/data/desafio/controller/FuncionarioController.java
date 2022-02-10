@@ -26,7 +26,7 @@ import io.swagger.annotations.ApiResponses;
 import lombok.AllArgsConstructor;
 
 @RestController
-@RequestMapping(value="/api")
+@RequestMapping(value="/api/v1")
 @Api(value="API Agência Cronos")
 @CrossOrigin(origins="*")
 @AllArgsConstructor
@@ -45,22 +45,32 @@ public class FuncionarioController {
 		return funcionarioService.findAll();
 	}
 	
+	@ApiResponses(value= {
+			@ApiResponse(code = 200, message = "Funcionario encontrado pelo id"),
+			@ApiResponse(code = 403, message = "Você não tem permissão para acessar este recurso"),
+			@ApiResponse(code = 500, message = "Aconteceu gerada uma exceção")
+	})
 	@GetMapping(value="/listar/funcionarios/{id}", produces = "application/json")
-	@ApiOperation(value="Busca um funcionario pleo id")
+	@ApiOperation(value="Retorna um único funcionário pelo id")
 	public ResponseEntity<FuncionarioDTO> listarFuncionariosPorId(@PathVariable (value="id") Long id) {
 		FuncionarioDTO dto = new FuncionarioDTO(funcionarioService.listarFuncionariosPorId(id));
 		return ResponseEntity.ok().body(dto);
 	}
 	
+	@ApiResponses(value= {
+			@ApiResponse(code = 200, message = "Funcionario cadastrado com sucesso"),
+			@ApiResponse(code = 403, message = "Você não tem permissão para acessar este recurso"),
+			@ApiResponse(code = 500, message = "Aconteceu gerada uma exceção")
+	})
 	@ResponseStatus(HttpStatus.CREATED)
 	@PostMapping("/cadastrar/funcionarios")
-	@ApiOperation(value="Salva um funcionário no banco")
+	@ApiOperation(value="Cadastra um funcionário no banco")
 	public Funcionario insertFuncionario(@RequestBody Funcionario funcionario) {
 		return funcionarioService.insertFuncionario(funcionario);
 	}
 	
 	@DeleteMapping(value="/deletar/funcionarios/{id}", produces= "application/json")
-	@ApiOperation(value="Deleta um produto pelo id")
+	@ApiOperation(value="Deleta um funcionário pelo id")
 	@ApiResponses(value= {
 			@ApiResponse(code = 200, message = "Funcionário exluido com sucesso"),
 			@ApiResponse(code = 403, message = "Você não tem permissão para acessar este recurso"),
@@ -83,16 +93,5 @@ public class FuncionarioController {
 		return ResponseEntity.ok().body(new FuncionarioDTO(detalhesFuncionario));
 	}
 	
-//	@PutMapping("/funcinarios/{id}")
-//	@ApiOperation(value="Atualiza um funcionario pelo id")
-//	public ResponseEntity<?> updateFuncionario(@RequestBody Funcionario funcionario,@PathVariable(value="id")Long id) {
-//		Funcionario funcResponse = funcionarioService.updateFuncionario(id,funcionario);
-//		return new ResponseEntity<>(funcResponse, HttpStatus.OK);
-//	}
-	
-	
-	
-	
-	
-	
+
 }
