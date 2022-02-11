@@ -15,7 +15,7 @@ services:
   web:
     image: dpage/pgadmin4
     environment:
-      PGADMIN_DEFAULT_EMAIL: "mauroslucios@gmail.com"
+      PGADMIN_DEFAULT_EMAIL: "administrador@email.com"
       PGADMIN_DEFAULT_PASSWORD: "PgAdmin2021!"
     ports:
       - "16543:80"
