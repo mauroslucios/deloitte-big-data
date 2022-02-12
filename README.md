@@ -13,8 +13,31 @@
 - postgresql(heroku)
 - git
 
-## Endpoints
+## Endpoints funcionarios
+- https://deloitte-big-data.herokuapp.com
+
 - /swagger-ui.html
+- /api/v1/listar/funcionarios
+- /api/v1/cadastrar/funcionarios
+- /api/v1/alterar/funcionarios/{i}
+- /api/v1/listar/funcionarios/{id}
+- /api/v1/deletar/funcionarios/{id}
+
+## Endpoints departamentos
+
+- /api/v1/listar/departamentos
+- api/v1/cadastrar/departamentos
+- api/v1/alterar/departamentos/{id}
+- api/v1/listar/departamentos/{id}
+- api/v1/deletar/departamentos/{id}
+
+## Endpoints posts
+
+- /api/v1/listar/posts
+- /api/v1/cadastrar/posts
+- /api/v1/alterar/posts/{id}
+- /api/v1/listar/posts/{id}
+- /api/v1/listar/posts/{id}
 
 ## SQL das tabelas
 ```
