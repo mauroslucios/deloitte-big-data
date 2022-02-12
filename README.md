@@ -13,6 +13,9 @@
 - postgresql(heroku)
 - git
 
+## Endpoints
+- /swagger-ui.html
+
 ## SQL das tabelas
 ```
 -- Table: public.tb_departamento
