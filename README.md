@@ -4,11 +4,14 @@
 - jpa
 - spring
 - postgresql
-- docker(container postgresql)
+- docker(container postgresql - localhost)
 - spring security(encriptar senha)
 - lombok
 - swagger
 - flyway
+- Heroku
+- postgresql(heroku)
+- git
 
 ## SQL das tabelas
 ```
