@@ -11,6 +11,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @SpringBootApplication(exclude= {SecurityAutoConfiguration.class})
 public class DesafioApplication {
 
+	
+	
 	public static void main(String[] args) {
 		SpringApplication.run(DesafioApplication.class, args);
 	}
