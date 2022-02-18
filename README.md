@@ -8,6 +8,7 @@
 - spring security(encriptar senha)
 - lombok
 - swaggerFox
+- swaggerUI
 - flyway
 - Heroku
 - postgresql(heroku)
