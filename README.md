@@ -7,7 +7,7 @@
 - docker(container postgresql - localhost)
 - spring security(encriptar senha)
 - lombok
-- swagger
+- swaggerFox
 - flyway
 - Heroku
 - postgresql(heroku)
