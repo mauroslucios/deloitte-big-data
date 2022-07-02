@@ -40,7 +40,7 @@ public class SwaggerConfig {
 				.title("App desafio Deloitte Big Data")
 				.description("Desafio realizado pela gama academy para admissão no cargo de big data")
 				.version("1.0")
-				.contact(new Contact("mauro lucio", "https://linkedin.com/in/mauro-lúcio-pereira", "mauroslucios"))
+				.contact(new Contact("mauro lucio", "https://linkedin.com/in/mauro-lucio-pereira", "mauroslucios"))
 				.license("Apache License Version 2.0")
 				.licenseUrl("https://www.apache.org/licenses/LICENSE-2.0")
 				.build();
